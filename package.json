@@ -1,0 +1,23 @@
+{
+  "name": "zodenv",
+  "version": "1.0.0",
+  "description": "Zod-based environment variable parser and validator.",
+  "author": "Joost Lubach <joostlubach@gmail.com>",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check": "tsc -p . --noEmit",
+    "lint": "eslint src --ext ts,tsx",
+    "test": "NODE_ENV=test DATA_ENV=test jest"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "ytil": "workspace:*",
+    "zod": "^4.1.5"
+  }
+}
