@@ -3,20 +3,36 @@
   "version": "1.0.0",
   "description": "Zod-based environment variable parser and validator.",
   "author": "Joost Lubach <joostlubach@gmail.com>",
-  "license": "MIT",
-  "main": "./src/index.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/cjs/index.js"
+    }
   },
   "scripts": {
-    "check": "tsc -p . --noEmit",
+    "build": "pnpm clean && pnpm build:tsc",
+    "build:tsc": "pnpm build:tsc:esm && pnpm build:tsc:cjs",
+    "build:tsc:esm": "tsc -p tsconfig.prod.json --module esnext --outDir dist/esm --declarationDir dist/types",
+    "build:tsc:cjs": "tsc -p tsconfig.prod.json --module commonjs --outDir dist/cjs --declaration false --declarationMap false",
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
     "lint": "eslint src --ext ts,tsx",
-    "test": "NODE_ENV=test DATA_ENV=test jest"
+    "check": "tsc -p . --noEmit",
+    "test": "NODE_ENV=test jest"
   },
   "devDependencies": {
-    "typescript": "^5.8.3"
+    "@types/lodash": "^4.17.20",
+    "js-yaml": "^4.1.0",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.1",
+    "typescript": "^5.9.2"
   },
   "dependencies": {
+    "chalk": "^3.0.0",
+    "lodash": "^4.17.21",
     "ytil": "workspace:*",
     "zod": "^4.1.5"
   }
