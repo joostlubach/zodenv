@@ -1,4 +1,4 @@
-import chalk from 'chalk'
+import chalk from 'chalk-template'
 import { z } from 'zod'
 
 import config, { Config, configure } from './config'

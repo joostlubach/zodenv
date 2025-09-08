@@ -31,7 +31,7 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "chalk": "^3.0.0",
+    "chalk-template": "^1.1.0",
     "lodash": "^4.17.21",
     "ytil": "workspace:*",
     "zod": "^4.1.5"
