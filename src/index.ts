@@ -1,13 +1,12 @@
 import chalk from 'chalk-template'
 import { z } from 'zod'
-
 import config, { Config, configure } from './config'
 
 export { type Config, configure }
 
-export function env<T>(name: string, type: z.ZodType<T>, defaultValue?: T) {
-  if (defaultValue != null) {
-    type = type.default(defaultValue)
+export function env<T>(name: string, type: z.ZodType<T>, defaultValue?: T | undefined) {
+  if (defaultValue !== undefined) {
+    type = type.default(defaultValue as z.util.NoUndefined<T>)
   }
 
   try {
