@@ -1,4 +1,5 @@
 import chalk from 'chalk-template'
+import { safeParseFloat } from 'ytil'
 import { z } from 'zod'
 
 import config, { Config, configure } from './config'
@@ -44,11 +45,11 @@ export namespace env {
   }
 
   export function number(name: string, defaultValue?: number): number | undefined {
-    return env(name, z.number(), defaultValue)  
+    return env(name, z.string().transform(val => safeParseFloat(val)).pipe(z.number()), defaultValue)
   }
 
   export function tryNumber(name: string): number | undefined {
-    return env(name, z.number().optional())
+    return env(name, z.string().optional().transform(val => safeParseFloat(val)).pipe(z.number()))
   }
 
 }
