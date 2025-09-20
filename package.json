@@ -28,12 +28,12 @@
     "js-yaml": "^4.1.0",
     "rimraf": "^6.0.1",
     "ts-jest": "^29.4.1",
-    "typescript": "^5.8.3",
-    "zod": "^4.1.5"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "chalk-template": "^1.1.0",
     "lodash": "^4.17.21",
-    "ytil": "workspace:*"
+    "ytil": "workspace:*",
+    "zod": "^4.1.5"
   }
 }
