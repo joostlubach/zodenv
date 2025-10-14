@@ -34,7 +34,7 @@
     "chalk-template": "^1.1.0",
     "jest": "^30.2.0",
     "lodash": "^4.17.21",
-    "ytil": "workspace:*",
+    "ytil": "workspace:^",
     "zod": "^4.1.5"
   }
 }
