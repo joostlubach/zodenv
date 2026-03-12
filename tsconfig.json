@@ -20,7 +20,6 @@
     "forceConsistentCasingInFileNames": true,
 
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
-    "types": ["vitest/globals"],
   },
   "include": [
     "src"
