@@ -14,9 +14,5 @@ const config: Config = {
 export default config
 
 export function configure(cfg?: Partial<Config>) {
-  merge(config, cfg, {
-    openai: {
-      apiKey: process.env.OPENAI_APIKEY ?? null,
-    },
-  })
+  merge(config, cfg)
 }
